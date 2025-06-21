@@ -75,12 +75,10 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
     }
   }
 
-  // Release handler (for owner)
   const handleRelease = async () => {
     // Implement release logic here
   }
 
-  // Auction handler (for owner)
   const handleAuction = async () => {
     // Implement auction logic here
   }

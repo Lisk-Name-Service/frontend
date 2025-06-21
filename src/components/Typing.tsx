@@ -34,7 +34,6 @@ export const TypingText = () => {
     }
 
     if (charIndex === current.length + 1) {
-      // Finished typing
       timeout = setTimeout(() => setIsDeleting(true), TYPED_PAUSE)
     }
 

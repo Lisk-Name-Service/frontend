@@ -31,7 +31,6 @@ export default function ParticleBackground() {
     const lineColor = "rgba(0, 0, 0, 0.3)"
     const particleSpeed = 0.2
 
-    // Create particles
     const particles: {
       x: number
       y: number
@@ -50,7 +49,6 @@ export default function ParticleBackground() {
       })
     }
 
-    // Animation loop
     let animationFrameId: number
 
     const animate = () => {
@@ -61,7 +59,6 @@ export default function ParticleBackground() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Update and draw particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
 

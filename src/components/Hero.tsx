@@ -5,7 +5,6 @@ import SearchBar from "./SearchBar"
 const Hero: React.FC = () => {
   return (
     <main className="min-h-screen bg-black text-white relative">
-      {/* Grid Pattern Background */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -16,7 +15,6 @@ const Hero: React.FC = () => {
         }}
       />
 
-      {/* Alternative CSS Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
           className="w-full h-full"

@@ -14,7 +14,7 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-6 py-20">
-        {/* Header */}
+
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -26,7 +26,6 @@ const About: React.FC = () => {
           </h1>
         </motion.div>
 
-        {/* Description Paragraphs */}
         <div className="space-y-8 text-lg leading-relaxed">
           {[
             "Lisk Name Service (LNS) is a decentralized naming protocol built for the future of Web3 adoption on Lisk and the broader Optimism Superchain.",
@@ -47,7 +46,6 @@ const About: React.FC = () => {
           ))}
         </div>
 
-        {/* Feature List */}
         <div className="space-y-6 mt-12">
           {[
             ["Simplify Payments:", "Send and receive funds using easy-to-remember .lisk names"],
@@ -73,7 +71,6 @@ const About: React.FC = () => {
           ))}
         </div>
 
-        {/* Footer */}
         <motion.footer
           className="mt-32 pt-8 border-t border-gray-800"
           initial="hidden"

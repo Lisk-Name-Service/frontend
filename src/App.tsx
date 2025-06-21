@@ -19,7 +19,7 @@ function App() {
 	const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 5000) // 1.2s fake load
+    const timer = setTimeout(() => setLoading(false), 5000)
     return () => clearTimeout(timer)
   }, [])
 

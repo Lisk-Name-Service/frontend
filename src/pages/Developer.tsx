@@ -65,7 +65,6 @@ const generateApiKey = async () => {
 	return (
 		<>
 			<main className="min-h-screen bg-black text-white relative">
-				{/* Grid Pattern Background */}
 				<div
 					className="absolute inset-0 opacity-20"
 					style={{
@@ -76,7 +75,6 @@ const generateApiKey = async () => {
 					}}
 				/>
 
-				{/* Alternative CSS Grid Pattern */}
 				<div className="absolute inset-0 opacity-10">
 					<div
 					className="w-full h-full"

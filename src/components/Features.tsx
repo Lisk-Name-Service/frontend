@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import ParticleBackground from "./Particle" // import your particle component
+import ParticleBackground from "./Particle" 
 
 const features = [
 	{
@@ -42,9 +42,7 @@ const cardVariants = {
 const Features: React.FC = () => {
 	return (
 		<div className="relative min-h-screen bg-gray-50 text-gray-900 overflow-hidden">
-			{/* Particle background */}
 			<ParticleBackground />
-			{/* Features content */}
 			<div className="relative z-10 container mx-auto px-6 py-20">
 				<div className="flex flex-col justify-between items-start">
 					<div className="grid md:grid-cols-3 gap-10">

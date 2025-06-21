@@ -17,12 +17,9 @@ const BrandLogos: React.FC = () => {
 
   return (
     <div className="relative overflow-hidden rounded-2xl py-8 w-full max-w-5xl mx-auto">
-      {/* Left Fade */}
       <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      {/* Right Fade */}
       <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
-      {/* Scrolling Content */}
       <div
         className="flex whitespace-nowrap"
         style={{
@@ -31,7 +28,7 @@ const BrandLogos: React.FC = () => {
             : undefined,
         }}
       >
-        {/* First set */}
+
         <div ref={setRef} className="flex items-center space-x-16 px-8 min-w-max">
           {brands.map((brand, idx) => (
             <div

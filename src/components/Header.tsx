@@ -99,7 +99,6 @@ const Header: React.FC = () => {
 		/>
     </header>
 
-      {/* Modal for Wallet Options */}
       {walletOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40">
           <div className="bg-white rounded-2xl shadow-2xl p-6 min-w-[300px] text-black relative">
