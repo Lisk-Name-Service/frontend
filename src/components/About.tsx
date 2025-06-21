@@ -1,7 +1,9 @@
 import type React from "react"
 import { motion } from "framer-motion"
+import type { Variants } from "framer-motion"
 
-const fadeInUp = {
+
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
     opacity: 1,
