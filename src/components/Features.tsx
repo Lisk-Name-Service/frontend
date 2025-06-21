@@ -1,5 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
+import type { Variants } from "framer-motion"
 import ParticleBackground from "./Particle" 
 
 const features = [
@@ -29,7 +30,7 @@ const features = [
 	},
 ]
 
-const cardVariants = {
+const cardVariants: Variants = {
 	offscreen: { opacity: 0, y: 80, scale: 0.95 },
 	onscreen: {
 		opacity: 1,
