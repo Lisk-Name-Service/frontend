@@ -3,6 +3,7 @@ import { useAccount, useSignMessage } from "wagmi"
 import { useState, useEffect } from "react"
 import { SDK } from "../components/SDK"
 import { Copy } from "lucide-react"
+import Seo from "../components/SEO"
 
 
 export const Developer = () => {
@@ -64,6 +65,18 @@ const generateApiKey = async () => {
 
 	return (
 		<>
+			<Seo
+				title="Lisk Name Service"
+				description="Register your .lisk domain and own your on-chain identity."
+				canonical="https://lisk-name-server.vercel.app"
+				image="/image.png"
+				schemaMarkup={{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"url": "https://lisk-name-server.vercel.app",
+				"name": "Lisk Name Service"
+				}}
+			/>
 			<main className="min-h-screen bg-black text-white relative">
 				<div
 					className="absolute inset-0 opacity-20"
