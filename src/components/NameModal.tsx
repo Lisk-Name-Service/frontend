@@ -3,7 +3,7 @@ import { useContract } from "../context/LiskNameService"
 import { useAccount } from "wagmi"
 import { getPrice } from "../context/service_utils"
 import { toast } from "react-toastify"
-import { X } from "lucide-react"
+import { X, Check } from "lucide-react"
 
 interface NameModalProps {
   name: string
@@ -12,7 +12,7 @@ interface NameModalProps {
 }
 
 const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
-  const { contract, registerName } = useContract()
+  const { contract, registerName, releaseName } = useContract()
   const { address } = useAccount()
   const [price, setPrice] = useState<string>("")
   const [owner, setOwner] = useState<string>("")
@@ -62,8 +62,18 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
     setLoading(true)
     setError(null)
     try {
-      await registerName(name)
-      onClose()
+		await registerName(name)
+
+		const info = await contract.names(name)
+		setOwner(info.owner)
+		setExpires(Number(info.expires))
+
+		const expiryDate = new Date(Number(info.expires) * 1000).toLocaleString()
+
+		toast.success(`${name}.lisk registered successfully.\nTo expire on ${expiryDate}`, {
+			icon: <Check className="text-black" />
+		})
+		onClose()
     } catch (e: any) {
       toast.error("Failed to register",
 		{
@@ -76,8 +86,24 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
   }
 
   const handleRelease = async () => {
-    // Implement release logic here
-  }
+	if (!contract || !address) return;
+		setLoading(true)
+		setError(null)
+
+		try {
+			await releaseName(name)
+			toast.success(`${name}.lisk has been released`, {
+			icon: <Check className="text-black" />,
+			})
+			onClose() // close modal
+		} catch (e: any) {
+			toast.error("Failed to release the name", {
+			icon: <X className="text-black" />,
+			})
+		} finally {
+			setLoading(false)
+		}
+	}
 
   const handleAuction = async () => {
     // Implement auction logic here
@@ -130,7 +156,7 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
             {address?.toLowerCase() === owner?.toLowerCase() ? (
               <div className="flex gap-2">
                 <button
-                  className="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-black text-white py-2 rounded hover:bg-gray-900 transition disabled:opacity-50 disabled:cursor-not-allowed"
                   onClick={handleAuction}
 				  disabled={!address}
                 >
