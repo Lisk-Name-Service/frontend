@@ -66,14 +66,14 @@ const generateApiKey = async () => {
 	return (
 		<>
 			<Seo
-				title="Lisk Name Service"
+				title="Lisk Name Service | Developer"
 				description="Register your .lisk domain and own your on-chain identity."
 				canonical="https://lisk-name-server.vercel.app"
-				image="/image.png"
+				image="/image1.png"
 				schemaMarkup={{
 				"@context": "https://schema.org",
 				"@type": "WebSite",
-				"url": "https://lisk-name-server.vercel.app",
+				"url": "https://lisk-name-server.vercel.app/dev-portal",
 				"name": "Lisk Name Service"
 				}}
 			/>
