@@ -119,7 +119,7 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
           onClick={onClose}
           aria-label="Close"
         >
-          ×
+          <X />
         </button>
         <h2 className="text-xl font-bold mb-2">{name}.lisk</h2>
         {loading ? (

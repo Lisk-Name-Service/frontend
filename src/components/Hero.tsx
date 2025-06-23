@@ -1,8 +1,11 @@
-import type React from "react"
-import SearchBar from "./SearchBar"
+import React, { useState } from "react"
+import Waitlist from "./Waitlist"
+// import SearchBar from "./SearchBar"
 
 
 const Hero: React.FC = () => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+
   return (
     <main className="min-h-screen bg-black text-white relative">
       <div
@@ -15,19 +18,6 @@ const Hero: React.FC = () => {
         }}
       />
 
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-wider">
@@ -37,9 +27,16 @@ const Hero: React.FC = () => {
             Lisk Name Service enhances your on-chain journey.
           </p>
 
-          <SearchBar />
+          <button
+            className="water-drain-btn px-3 py-1 sm:px-6 sm:py-2 border border-white rounded-full bg-white font-medium text-xs sm:text-base text-black hover:bg-gray-200 transition"
+            onClick={() => setIsWaitlistOpen(true)}
+          >
+            <span>Join our waitlist</span>
+          </button>
         </div>
       </div>
+
+      <Waitlist isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
     </main>
   )
 }
