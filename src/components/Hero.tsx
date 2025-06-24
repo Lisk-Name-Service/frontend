@@ -33,6 +33,7 @@ const Hero: React.FC = () => {
           >
             <span>Join our waitlist</span>
           </button>
+	  {/* <SearchBar /> */}
         </div>
       </div>
 
