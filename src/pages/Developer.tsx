@@ -107,6 +107,7 @@ const generateApiKey = async () => {
 						<p className="text-lg md:text-xl text-white mb-12 max-w-2xl mx-auto">
 							Access powerful SDKs to and resolve .lisk domains programmatically.
 						</p>
+							{/*
 						<div className="flex flex-col md:flex-row max-w-2xl mx-auto w-full gap-4 md:items-stretch">
 							<div
 								className={`flex-1 px-6 py-4 rounded-xl border transition-all duration-300 text-sm md:text-base flex items-center justify-between gap-2 cursor-pointer ${
@@ -145,7 +146,9 @@ const generateApiKey = async () => {
 								: "Generate API Key"}
 							</button>
 						</div>
+					       */}
 					</div>
+				      Wait For Our Launch
 				</div>
 			</main>
 			<SDK />
