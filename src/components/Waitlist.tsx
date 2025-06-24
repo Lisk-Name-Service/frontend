@@ -31,7 +31,7 @@ const Waitlist: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
 		setIsSubmitting(true);
 
 		try {
-			const response = await fetch("http://localhost:4000/waitlist", {
+			const response = await fetch("https://lns-backend.onrender.com/waitlist", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
