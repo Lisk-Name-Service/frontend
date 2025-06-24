@@ -1,65 +1,67 @@
 import { TypingText } from "../components/Typing"
-import { useAccount, useSignMessage } from "wagmi"
-import { useState, useEffect } from "react"
+import { useAccount } from "wagmi" //, useSignMessage } from "wagmi"
+import { useEffect } from "react"
 import { SDK } from "../components/SDK"
-import { Copy } from "lucide-react"
+// import { Copy } from "lucide-react"
 import Seo from "../components/SEO"
 
 
 export const Developer = () => {
 	const { address, isConnected } = useAccount()
-	const { signMessageAsync } = useSignMessage();
-	const [apiKey, setApiKey] = useState<string | null>(null)
-	const [loading, setLoading] = useState(false)
+	// const { signMessageAsync } = useSignMessage();
+	// const [apiKey, setApiKey] = useState<string | null>(null)
+	// const [loading, setLoading] = useState(false)
 
-	const fetchApiKey = async () => {
-		setLoading(true)
-		try {
-		const storedKey = localStorage.getItem(`api_key_${address}`)
-		setApiKey(storedKey)
-		} catch (err) {
-		console.error("Error fetching API key:", err)
-		} finally {
-		setLoading(false)
-		}
-	}
+// 	const fetchApiKey = async () => {
+// 		setLoading(true)
+// 		try {
+// 		const storedKey = localStorage.getItem(`api_key_${address}`)
+// 		setApiKey(storedKey)
+// 		} catch (err) {
+// 		console.error("Error fetching API key:", err)
+// 		} finally {
+// 		setLoading(false)
+// 		}
+// 	}
 
-	const message = "Authorize LNS SDK access — Generate API Key";
+// 	const message = "Authorize LNS SDK access — Generate API Key";
 
-const generateApiKey = async () => {
-  if (!address) return;
-  setLoading(true);
+// const generateApiKey = async () => {
+//   if (!address) return;
+//   setLoading(true);
 
-  try {
-    const signature = await signMessageAsync({ message });
-	const url = import.meta.env.VITE_BACKEND_URL;
+//   try {
+//     const signature = await signMessageAsync({ message });
+// 	const url = import.meta.env.VITE_BACKEND_URL;
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ address, message, signature }),
-    });
+//     const response = await fetch(url, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ address, message, signature }),
+//     });
 
-    const data = await response.json();
+//     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "API key generation failed");
-    }
+//     if (!response.ok) {
+//       throw new Error(data.error || "API key generation failed");
+//     }
 
-    localStorage.setItem(`api_key_${address}`, data.apiKey);
-    setApiKey(data.apiKey);
-  } catch (err) {
-    console.error("Error generating API key:", err);
-  } finally {
-    setLoading(false);
-  }
-};
+//     localStorage.setItem(`api_key_${address}`, data.apiKey);
+//     setApiKey(data.apiKey);
+//   } catch (err) {
+//     console.error("Error generating API key:", err);
+//   } finally {
+//     setLoading(false);
+//   }
+// };
 
 	useEffect(() => {
 		if (isConnected) {
-		fetchApiKey()
+		// fetchApiKey()
+		console.log("connected")
 		} else {
-		setApiKey(null)
+		// setApiKey(null)
+		console.log("Not connected")
 		}
 	}, [isConnected, address])
 
