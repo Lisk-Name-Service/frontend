@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import Waitlist from "./Waitlist"
-// import SearchBar from "./SearchBar"
+import React from "react"
+// import Waitlist from "./Waitlist"
+import SearchBar from "./SearchBar"
 
 
 const Hero: React.FC = () => {
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+//   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
 
   return (
     <main className="min-h-screen bg-black text-white relative">
@@ -23,21 +23,20 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-wider">
             EMPOWER YOUR DIGITAL PRESENCE
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Lisk Name Service enhances your on-chain journey.
+          <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+			Claim &gt; Own &gt; Be Known
           </p>
-
-          <button
+          {/* <button
             className="water-drain-btn px-3 py-1 sm:px-6 sm:py-2 border border-white rounded-full bg-white font-medium text-xs sm:text-base text-black hover:bg-gray-200 transition"
             onClick={() => setIsWaitlistOpen(true)}
           >
             <span>Join our waitlist</span>
-          </button>
-	  {/* <SearchBar /> */}
+          </button> */}
+		<SearchBar />
         </div>
       </div>
 
-      <Waitlist isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
+      {/* <Waitlist isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} /> */}
     </main>
   )
 }

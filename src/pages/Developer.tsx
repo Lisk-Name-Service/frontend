@@ -1,66 +1,66 @@
 import { TypingText } from "../components/Typing"
-import { useAccount } from "wagmi" //, useSignMessage } from "wagmi"
-import { useEffect } from "react"
+import { useAccount, useSignMessage } from "wagmi"
+import { useEffect, useState } from "react"
 import { SDK } from "../components/SDK"
-// import { Copy } from "lucide-react"
+import { Copy } from "lucide-react"
 import Seo from "../components/SEO"
 
 
 export const Developer = () => {
 	const { address, isConnected } = useAccount()
-	// const { signMessageAsync } = useSignMessage();
-	// const [apiKey, setApiKey] = useState<string | null>(null)
-	// const [loading, setLoading] = useState(false)
+	const { signMessageAsync } = useSignMessage();
+	const [apiKey, setApiKey] = useState<string | null>(null)
+	const [loading, setLoading] = useState(false)
 
-// 	const fetchApiKey = async () => {
-// 		setLoading(true)
-// 		try {
-// 		const storedKey = localStorage.getItem(`api_key_${address}`)
-// 		setApiKey(storedKey)
-// 		} catch (err) {
-// 		console.error("Error fetching API key:", err)
-// 		} finally {
-// 		setLoading(false)
-// 		}
-// 	}
+	const fetchApiKey = async () => {
+		setLoading(true)
+		try {
+		const storedKey = localStorage.getItem(`api_key_${address}`)
+		setApiKey(storedKey)
+		} catch (err) {
+		console.error("Error fetching API key:", err)
+		} finally {
+		setLoading(false)
+		}
+	}
 
-// 	const message = "Authorize LNS SDK access — Generate API Key";
+	const message = "Authorize LNS SDK access — Generate API Key";
 
-// const generateApiKey = async () => {
-//   if (!address) return;
-//   setLoading(true);
+const generateApiKey = async () => {
+  if (!address) return;
+  setLoading(true);
 
-//   try {
-//     const signature = await signMessageAsync({ message });
-// 	const url = import.meta.env.VITE_BACKEND_URL;
+  try {
+    const signature = await signMessageAsync({ message });
+	const url = import.meta.env.VITE_BACKEND_URL;
 
-//     const response = await fetch(url, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ address, message, signature }),
-//     });
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ address, message, signature }),
+    });
 
-//     const data = await response.json();
+    const data = await response.json();
 
-//     if (!response.ok) {
-//       throw new Error(data.error || "API key generation failed");
-//     }
+    if (!response.ok) {
+      throw new Error(data.error || "API key generation failed");
+    }
 
-//     localStorage.setItem(`api_key_${address}`, data.apiKey);
-//     setApiKey(data.apiKey);
-//   } catch (err) {
-//     console.error("Error generating API key:", err);
-//   } finally {
-//     setLoading(false);
-//   }
-// };
+    localStorage.setItem(`api_key_${address}`, data.apiKey);
+    setApiKey(data.apiKey);
+  } catch (err) {
+    console.error("Error generating API key:", err);
+  } finally {
+    setLoading(false);
+  }
+};
 
 	useEffect(() => {
 		if (isConnected) {
-		// fetchApiKey()
+		fetchApiKey()
 		console.log("connected")
 		} else {
-		// setApiKey(null)
+		setApiKey(null)
 		console.log("Not connected")
 		}
 	}, [isConnected, address])
@@ -109,7 +109,7 @@ export const Developer = () => {
 						<p className="text-lg md:text-xl text-white mb-12 max-w-2xl mx-auto">
 							Access powerful SDKs to and resolve .lisk domains programmatically.
 						</p>
-							{/*
+							
 						<div className="flex flex-col md:flex-row max-w-2xl mx-auto w-full gap-4 md:items-stretch">
 							<div
 								className={`flex-1 px-6 py-4 rounded-xl border transition-all duration-300 text-sm md:text-base flex items-center justify-between gap-2 cursor-pointer ${
@@ -148,9 +148,8 @@ export const Developer = () => {
 								: "Generate API Key"}
 							</button>
 						</div>
-					       */}
+					      
 					</div>
-				      Wait For Our Launch
 				</div>
 			</main>
 			<SDK />
