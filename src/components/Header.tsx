@@ -66,11 +66,11 @@ const Header: React.FC = () => {
       <div className="flex items-center justify-between px-4 sm:px-8 py-2 gap-2 sm:gap-0">
         <div className="text-xl sm:text-2xl font-bold flex items-center space-x-2">
           <img
-            src="/images/lisk.png"
+            src="/images/lns.png"
             className="h-5 sm:h-12 md:h-16 w-auto object-contain transition-all duration-300"
             alt="Lisk Logo"
           />
-          <span className="text-base sm:text-xl md:text-2xl">NS</span>
+          <span className="text-base sm:text-xl md:text-2xl">LNS</span>
         </div>
         <div className="flex items-center space-x-3 sm:space-x-6 mt-2 sm:mt-0">
           
