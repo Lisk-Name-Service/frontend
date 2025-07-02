@@ -7,6 +7,7 @@ import { ContractProvider } from "./context/LiskNameService"
 import { Routes, Route } from "react-router-dom"
 import { Landing } from './pages/Landing'
 import { Developer } from './pages/Developer'
+import { Auction }  from './pages/Auction'
 import Header from "./components/Header"
 import CustomCursor from "./components/CustomCursor"
 import "./App.css"
@@ -41,6 +42,7 @@ function App() {
 					<Routes>
 						<Route path='/' element={<Landing />} />
 						<Route path='/dev-portal' element={<Developer />} />
+						<Route path='/auction' element={<Auction />} />
 					</Routes>
 					<ToastContainer
 						position="bottom-right"

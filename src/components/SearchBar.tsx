@@ -19,7 +19,6 @@ const SearchBar: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    // Close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -113,7 +112,6 @@ const SearchBar: React.FC = () => {
         </button>
       </div>
 
-      {/* Dropdown menu */}
        {isDropdownOpen && (
         <div className="absolute mt-2 w-full bg-white border text-black font-bold border-gray-700 rounded-xl shadow-lg overflow-hidden z-20 transition-all duration-300 ease-in-out">
           <div className="p-4 items-center">

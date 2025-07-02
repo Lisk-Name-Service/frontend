@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useContract } from "../context/LiskNameService"
 import { useAccount } from "wagmi"
 import { getPrice } from "../context/service_utils"
 import { toast } from "react-toastify"
 import { X, Check } from "lucide-react"
+
 
 interface NameModalProps {
   name: string
@@ -19,6 +21,7 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
   const [expires, setExpires] = useState<number | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate();
 
   const modalRef = useRef<HTMLDivElement>(null)
 
@@ -56,7 +59,7 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
     fetchDetails()
   }, [contract, name, available])
 
-  // Buy handler
+
   const handleBuy = async () => {
     if (!contract) return
     setLoading(true)
@@ -106,7 +109,7 @@ const NameModal: React.FC<NameModalProps> = ({ name, available, onClose }) => {
 	}
 
   const handleAuction = async () => {
-    // Implement auction logic here
+	navigate('/auction');
   }
 
   return (
