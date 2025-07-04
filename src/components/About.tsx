@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
 
 
-const fadeInUp: Variants = {
+export const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
     opacity: 1,
@@ -72,34 +72,6 @@ const About: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.footer
-          className="mt-32 pt-8 border-t border-gray-800"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-				Copyright © {new Date().getFullYear()} Team HashGangs
-			</div>
-            <div className="flex items-center space-x-6">
-				<a 
-					href="/dev-portal"
-					target="_blank"
-					className="text-gray-400 hover:text-white transition-colors text-sm hover:underline">
-				Docs
-				</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm hover:underline">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm hover:underline">
-                Privacy Policy
-              </a>
-            </div>
-          </div>
-        </motion.footer>
       </div>
     </div>
   )

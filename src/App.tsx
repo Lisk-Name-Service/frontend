@@ -9,6 +9,7 @@ import { Landing } from './pages/Landing'
 import { Developer } from './pages/Developer'
 import { Auction }  from './pages/Auction'
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 import CustomCursor from "./components/CustomCursor"
 import "./App.css"
 import { ToastContainer } from "react-toastify";
@@ -44,6 +45,7 @@ function App() {
 						<Route path='/dev-portal' element={<Developer />} />
 						<Route path='/auction' element={<Auction />} />
 					</Routes>
+					<Footer />
 					<ToastContainer
 						position="bottom-right"
 						autoClose={4000}
